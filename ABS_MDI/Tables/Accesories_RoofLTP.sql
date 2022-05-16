@@ -18,5 +18,6 @@ CREATE TABLE abs_mdi."Accesories_RoofLTP" (
   "Price" NUMBER(10,4),
   "IsPriced" CHAR,
   "ErrorCode" NUMBER(5),
+  "NewField" CHAR,
   CONSTRAINT "Accesories_RoofLTP_PK" PRIMARY KEY ("RoofLTPId")
 );
