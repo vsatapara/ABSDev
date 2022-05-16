@@ -1,0 +1,68 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."SYSTEMVARIABLES_LIST" 
+(
+    Output_Data OUT SYS_REFCURSOR
+)
+AS 
+BEGIN
+   OPEN Output_Data FOR 
+       SELECT 
+        "SystemVariableId",
+        "MinimumPasswordLength",
+        "LoginConfirmationDays",
+        "PasswordResetConfirmationDays",
+        "LoginRetries",
+        "SessionTimeout",
+        "MaximumAttachmentSize",
+        "AcceptableAttachmentTypes",
+        "AcceptableLogoTypes",
+        "SystemVersion",
+        "CopyrightInformation",
+        "NoContentMessageOrders",
+        "NoContentMessageQuotes",
+        "NoContentMessageLeads",
+        "NoContentMessageContacts",
+        "NoContentMessageUpcomingEvents",
+        "NoContentMessageFeatureAnnouncements",
+        "NoContentMessageBuilderNews",
+        "NoContentMessageJobBoard",
+        "DailyNotificationTimeUtc",
+        "WeeklyNotificationTimeUtc",
+        "NotificationDayOfTheWeek",
+        "NotificationSliderSpeed",
+        "FurthestShippingDays",
+        "BuildingPricingVersionNumber",
+        "ThrottlingThreshold",
+        "ThrottlingDelay",
+        "FramedOpeningClearanceTop",
+        "FramedOpeningClearanceBottom",
+        "FramedOpeningClearanceSides",
+        "TopClearenceForMainFrameEndwallsForFramedOpening",
+        "FramedOpeningSideClearenceForMainFrameEndwalls",
+        "TopClearenceForMainFrameEndwallsForDbciDoor",
+        "DbciDoorClearanceTop",
+        "DbciDoorClearanceBottom",
+        "FramedOpeningTopClearanceForBearingFrameEndwalls",
+        "DbciDoorClearanceSides",
+        "PortalFrameColumnDepth",
+        "PortalFrameBeamDepth",
+        "DbciDoorTopClearanceForBearingFrameEndwalls",
+        "FramedOpeningSideClearanceForBearingFrameEndwalls",
+        "MinValueForEndwallBSpecialSetback",
+        "MaxValueForEndwallBSpecialSetback",
+        "MinValueForEndwallDSpecialSetback",
+        "MinimumCanopySoffitElevation",
+        "ParapetMinimumDistanceAboveRoofLine",
+        "MaximumVerticalClearanceRequirement",
+        "ThreeWeekFee",
+        "FerryFee",
+        "NumberOfItemsPerPage",
+        "FurthestShippingDaysForComponent",
+        "AgoraPurchaseOrderVersion",
+        "ComponentPurchaseOrderVersion",
+        "ComponentPricingVersion",
+        "FurthestShippingDaysBuilding",
+        "DBCIDoorSideClearanceMainFrame",
+        "DBCIDoorSideClearanceBearingFrame"
+      FROM "SystemVariable";
+END SYSTEMVARIABLES_LIST;
+/

@@ -1,0 +1,22 @@
+CREATE TABLE abs_mdi."EDSPrice_O_RMGData" (
+  "RMGDataId" NUMBER DEFAULT abs_mdi."EDSPrice_O_RMGData_SEQ"."NEXTVAL" NOT NULL,
+  "RMGIndex" VARCHAR2(50 BYTE),
+  "ShipMonth" VARCHAR2(50 BYTE),
+  "Builtup" NUMBER(10,2),
+  "FabColdform" NUMBER(10,2),
+  "Coldform" NUMBER(10,2),
+  "HotRolled" NUMBER(10,2),
+  "SSPanel" NUMBER(10,2),
+  "Panel" NUMBER(10,2),
+  "Trim" NUMBER(10,2),
+  "Warehouse" NUMBER(10,2),
+  "Buyouts" NUMBER(10,2),
+  "CreatedBy" NUMBER(10),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER(10),
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "IsDeleted" VARCHAR2(1 BYTE),
+  "ProjectId" NUMBER(10),
+  CONSTRAINT "Pk_EDSPrice_O_RMGData_ProjectId" PRIMARY KEY ("RMGDataId")
+);

@@ -1,0 +1,12 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Accessories_Liner_Roof_TRG" 
+BEFORE INSERT ON abs_mdi."Accessories_Liner_Roof" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."RoofLinerId" IS NULL THEN
+      SELECT "Accessories_Liner_Roof_SEQ".NEXTVAL INTO :NEW."RoofLinerId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+/

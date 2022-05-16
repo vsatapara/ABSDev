@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."CLM_GeoRegions_AnsId" ON abs_mdi."CLM_GeoRegions"("AnsiId");

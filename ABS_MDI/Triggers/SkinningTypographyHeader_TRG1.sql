@@ -1,0 +1,12 @@
+CREATE OR REPLACE TRIGGER abs_mdi."SkinningTypographyHeader_TRG1" 
+BEFORE INSERT ON abs_mdi."SkinningTypographyHeader" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW.ID IS NULL THEN
+      SELECT "SkinningTypographyHeader_SEQ2".NEXTVAL INTO :NEW.ID FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+/

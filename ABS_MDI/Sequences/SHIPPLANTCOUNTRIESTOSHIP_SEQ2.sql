@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi.shipplantcountriestoship_seq;

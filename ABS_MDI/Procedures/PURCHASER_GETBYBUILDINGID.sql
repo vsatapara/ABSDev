@@ -1,0 +1,61 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."PURCHASER_GETBYBUILDINGID" 
+(
+    OUTPUT_TABLE OUT  SYS_REFCURSOR
+)
+AS
+BEGIN
+OPEN OUTPUT_TABLE FOR SELECT
+    "PurchaserId",
+    "PurchaserName",
+    "Contact",
+    "Country",
+    "State",
+    "City",
+    "County",
+    "Address1",
+    "Address2",
+    "ZipCode",
+    "EmailAddress",
+    "PhoneNumber",
+    "OvernightCountry",
+    "OvernightState",
+    "OvernightCity",
+    "OvernightCounty",
+    "OvernightAddress1",
+    "OvernightAddress2",
+    "OvernightZipCode",
+    "FederalTaxIDNumber",
+    "CecoErection",
+    "SellerFurnish",
+    "SellerErect",
+    "FaxNumber",
+    "BuyerNumber",
+    "BuyerName",
+    "BuyerCareOf",
+    "BuyerCountry",
+    "BuyerIntSite",
+    "BuyerState",
+    "BuyerCounty",
+    "BuyerAddress",
+    "BuyerCity",
+    "BuyerZipCode",
+    "BuyerMailCountry",
+    "BuyerMailIntSite",
+    "BuyerMailState",
+    "BuyerMailCounty",
+    "BuyerMailAddress",
+    "BuyerMailCity",
+    "BuyerMailZipCode",
+    "BuyerContactName",
+    "BuyerEmail1",
+    "BuyerEmail2",
+    "BuyerDayPhone",
+    "BuyerFaxNumber",
+    "BuyerNightPhone",
+    "BuyerMobileNumber"
+FROM
+   "Purchaser"
+WHERE
+                "IsDelete" != 'Y';
+END;
+/

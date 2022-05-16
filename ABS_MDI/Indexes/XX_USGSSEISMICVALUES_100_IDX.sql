@@ -1,0 +1,2 @@
+CREATE INDEX abs_mdi.xx_usgsseismicvalues_100_idx ON abs_mdi.xx_usgsseismicvalues_100(geopoint)
+INDEXTYPE IS mdsys.spatial_index;

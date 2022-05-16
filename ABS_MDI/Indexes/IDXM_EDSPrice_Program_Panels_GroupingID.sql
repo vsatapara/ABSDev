@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."IDXM_EDSPrice_Program_Panels_GroupingID" ON abs_mdi."M_EDSPrice_Program_Panels"("GroupingID");

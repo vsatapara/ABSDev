@@ -1,0 +1,21 @@
+CREATE TABLE abs_mdi."EDSPrice_O_CanopyRafters" (
+  "CanopyRaftersId" NUMBER(10) NOT NULL,
+  "BuildingNumber" NUMBER(10),
+  "Elevation" VARCHAR2(50 BYTE),
+  "ColumnLine" NUMBER(10),
+  "RafterType" VARCHAR2(50 BYTE),
+  "StartRafterDepth" NUMBER(10),
+  "EndRafterDepth" NUMBER(10),
+  "WebThick" NUMBER(10),
+  "FlangeWidth" NUMBER(10),
+  "FlangeThick" NUMBER(10),
+  "CreatedBy" NUMBER(10),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER(10),
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "IsDeleted" VARCHAR2(1 BYTE),
+  "ProjectId" NUMBER(10),
+  CONSTRAINT "EDSPrice_O_CanopyRafters_PK" PRIMARY KEY ("CanopyRaftersId"),
+  CONSTRAINT eds_price_o_canopyrafters_fk FOREIGN KEY ("BuildingNumber") REFERENCES abs_mdi."BuildingInformation" ("BuildingInformationId")
+);

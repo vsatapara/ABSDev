@@ -1,0 +1,137 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."PAYMENT_UPDATE" (
+    ProjectId              IN      NUMBER,
+    PaymentId              IN      NUMBER,
+    OrderedBy              IN      VARCHAR2,
+    CreditTerms            IN      VARCHAR2,
+    BuilderPO              IN      VARCHAR2,
+    TaxExemptStatus        IN      VARCHAR2,
+    TaxExemptNumber        IN      VARCHAR2,
+    ClarificationDayPhone  IN      VARCHAR2,
+    GCName                 IN      VARCHAR2,
+    GCAddressId            IN OUT  NUMBER,
+    GCAddress1             IN      VARCHAR2,
+    GCAddress2             IN      VARCHAR2,
+    GCCountry              IN      VARCHAR2,
+    GCState                IN      VARCHAR2,
+    GCCounty               IN      VARCHAR2,
+    GCCity                 IN      VARCHAR2,
+    GCZipcode              IN      VARCHAR2,
+    GCLongitude            IN      VARCHAR2,
+    GCLatitude             IN      VARCHAR2,
+    ErectorName            IN      VARCHAR2,
+    ErectorAddressId       IN OUT  NUMBER,
+    ErectorAddress1        IN      VARCHAR2,
+    ErectorAddress2        IN      VARCHAR2,
+    ErectorCountry         IN      VARCHAR2,
+    ErectorState           IN      VARCHAR2,
+    ErectorCounty          IN      VARCHAR2,
+    ErectorCity            IN      VARCHAR2,
+    ErectorZipcode         IN      VARCHAR2,
+    ErectorLongitude       IN      VARCHAR2,
+    ErectorLatitude        IN      VARCHAR2,
+    LenderName             IN      VARCHAR2,
+    LenderPhone            IN      VARCHAR2,
+    LenderAddressId        IN OUT  NUMBER,
+    LenderAddress1         IN      VARCHAR2,
+    LenderAddress2         IN      VARCHAR2,
+    LenderCountry          IN      VARCHAR2,
+    LenderState            IN      VARCHAR2,
+    LenderCounty           IN      VARCHAR2,
+    LenderCity             IN      VARCHAR2,
+    LenderZipcode          IN      VARCHAR2,
+    LenderLongitude        IN      VARCHAR2,
+    LenderLatitude         IN      VARCHAR2,
+    UserId                 IN      VARCHAR2,
+    IpAddress              IN      VARCHAR2
+) AS
+BEGIN
+    UPDATE "EDSPrice_I_Payment"
+    SET
+        "OrderedBy" = OrderedBy,
+        "CreditTerms" = CreditTerms,
+        "BuilderPO" = BuilderPO,
+        "TaxExemptStatus" = TaxExemptStatus,
+        "TaxExemptNumber" = TaxExemptNumber,
+        "ClarificationDayPhone" = ClarificationDayPhone,
+        "GCName" = GCName,
+        "ErectorName" = ErectorName,
+        "LenderName" = LenderName,
+        "LenderPhone" = LenderPhone,
+        "ModifiedBy" = UserId,
+        "IpAddress" = IpAddress
+    WHERE
+        "PaymentId" = PaymentId;
+    IF GCAddressId = 0 THEN
+        Address_Create(ProjectId => ProjectId, Address1 => GCAddress1, Address2 => GCAddress2, Country => GCCountry,
+                      State => GCState,
+                      County => GCCounty,
+                      City => GCCity,
+                      Zipcode => GCZipcode,
+                      Longitude => GCLongitude,
+                      Latitude => GCLatitude,
+                      CreatedBy => UserId,
+                      IpAddress => IpAddress,
+                      Addresstype => 'GC',
+                      OutputId => GCAddressId);
+    ELSE
+        Address_Update(AddressId => GCAddressId, ProjectId => ProjectId, Address1 => GCAddress1, Address2 => GCAddress2,
+                      Country => GCCountry,
+                      State => GCState,
+                      County => GCCounty,
+                      City => GCCity,
+                      ZipCode => GCZipcode,
+                      Longitude => GCLongitude,
+                      Latitude => GCLatitude,
+                      ModifiedBy => UserId,
+                      IpAddress => IpAddress);
+    END IF;
+    IF ErectorAddressId = 0 THEN
+        Address_Create(ProjectId => ProjectId, Address1 => ErectorAddress1, Address2 => ErectorAddress2, Country => ErectorCountry,
+                      State => ErectorState,
+                      County => ErectorCounty,
+                      City => ErectorCity,
+                      Zipcode => ErectorZipcode,
+                      Longitude => ErectorLongitude,
+                      Latitude => ErectorLatitude,
+                      CreatedBy => UserId,
+                      IpAddress => IpAddress,
+                      Addresstype => 'ER',
+                      OutputId => ErectorAddressId);
+    ELSE
+        Address_Update(AddressId => ErectorAddressId, ProjectId => ProjectId, Address1 => ErectorAddress1, Address2 => ErectorAddress2,
+                      Country => ErectorCountry,
+                      State => ErectorState,
+                      County => ErectorCounty,
+                      City => ErectorCity,
+                      ZipCode => ErectorZipcode,
+                      Longitude => ErectorLongitude,
+                      Latitude => ErectorLatitude,
+                      ModifiedBy => UserId,
+                      IpAddress => IpAddress);
+    END IF;
+    IF LenderAddressId = 0 THEN
+        Address_Create(ProjectId => ProjectId, Address1 => LenderAddress1, Address2 => LenderAddress2, Country => LenderCountry,
+                      State => LenderState,
+                      County => LenderCounty,
+                      City => LenderCity,
+                      Zipcode => LenderZipcode,
+                      Longitude => LenderLongitude,
+                      Latitude => LenderLatitude,
+                      CreatedBy => UserId,
+                      IpAddress => IpAddress,
+                      Addresstype => 'LE',
+                      OutputId => LenderAddressId);
+    ELSE
+        Address_Update(AddressId => LenderAddressId, ProjectId => ProjectId, Address1 => LenderAddress1, Address2 => LenderAddress2,
+                      Country => LenderCountry,
+                      State => LenderState,
+                      County => LenderCounty,
+                      City => LenderCity,
+                      ZipCode => ErectorZipcode,
+                      Longitude => LenderLongitude,
+                      Latitude => LenderLatitude,
+                      ModifiedBy => UserId,
+                      IpAddress => IpAddress);
+    END IF;
+END Payment_Update;
+/

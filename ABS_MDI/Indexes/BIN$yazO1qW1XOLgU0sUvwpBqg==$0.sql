@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX abs_mdi."BIN$yazO1qW1XOLgU0sUvwpBqg==$0" ON abs_mdi."Accesories_WallLTP_Size"("Id");

@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."IDXCLM_GeoRegionsCopy_AnsiId" ON abs_mdi."CLM_GeoRegionsCopy"("AnsiId");

@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi.ddp_edsdb_version_seq;

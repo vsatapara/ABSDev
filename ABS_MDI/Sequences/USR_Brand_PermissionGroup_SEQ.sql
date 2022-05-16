@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."USR_Brand_PermissionGroup_SEQ";

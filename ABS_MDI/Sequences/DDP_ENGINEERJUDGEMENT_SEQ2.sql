@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi.ddp_engineerjudgement_seq2;

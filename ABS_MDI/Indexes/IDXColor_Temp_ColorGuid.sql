@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."IDXColor_Temp_ColorGuid" ON abs_mdi."Color_Temp"("ColorGuid");

@@ -1,0 +1,22 @@
+CREATE TABLE abs_mdi."Accesories_RoofLTP" (
+  "RoofLTPId" NUMBER(10) NOT NULL,
+  "BuildingNumber" NUMBER(10) NOT NULL,
+  "ProjectId" NUMBER(10) NOT NULL,
+  "Length" NUMBER(10,4) NOT NULL,
+  "Size" NUMBER(10,4) NOT NULL,
+  "Location" VARCHAR2(50 BYTE) NOT NULL,
+  "IsInsulated" CHAR NOT NULL,
+  "IsUL90Framing" CHAR NOT NULL,
+  "CreatedBy" NUMBER,
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER,
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "IsDelete" CHAR,
+  "Qty" NUMBER(5),
+  "Weight" NUMBER(10,4),
+  "Price" NUMBER(10,4),
+  "IsPriced" CHAR,
+  "ErrorCode" NUMBER(5),
+  CONSTRAINT "Accesories_RoofLTP_PK" PRIMARY KEY ("RoofLTPId")
+);

@@ -1,0 +1,14 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Input_Endwalls_Recesses_TRG" 
+BEFORE INSERT ON abs_mdi."Input_Endwalls_Recesses" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW.EWRID IS NULL THEN
+      SELECT "Input_Endwalls_Recesses_SEQ".NEXTVAL INTO :NEW.EWRID FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+
+/

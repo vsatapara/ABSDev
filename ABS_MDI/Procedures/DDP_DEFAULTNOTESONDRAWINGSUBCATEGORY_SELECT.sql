@@ -1,0 +1,20 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."DDP_DEFAULTNOTESONDRAWINGSUBCATEGORY_SELECT" 
+ /*   Created By Foram Menpara
+      Created Date   16-07-2021
+      Description   This stored Procedure used to get the data from  table DDP_DEFAULTNOTESONDRAWINGSUBCATEGORY */
+(
+    V_SubCategoryId IN NUMBER,
+    Output_Data OUT SYS_REFCURSOR
+)
+AS 
+BEGIN
+ OPEN Output_Data FOR 
+     SELECT   
+     ORDERPRIORITY,
+      CATEGORYID,
+      SUBCATEGORYNAME,
+      SUBCATEGORYID
+      FROM DDP_DEFAULTNOTESONDRAWINGSUBCATEGORY where SUBCATEGORYID = V_SubCategoryId 
+      and ISDELETE='N'; --and "ModuleName"=ModuleName;
+END DDP_DEFAULTNOTESONDRAWINGSUBCATEGORY_SELECT;
+/

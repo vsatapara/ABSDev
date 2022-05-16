@@ -1,0 +1,20 @@
+CREATE TABLE abs_mdi."Input_RoofCommonData" (
+  "RoofPanelCommonDataId" NUMBER(10),
+  "Default" VARCHAR2(50 BYTE),
+  "Category" VARCHAR2(50 BYTE),
+  "SubCategory" VARCHAR2(50 BYTE),
+  "Width" VARCHAR2(20 BYTE),
+  "Thickness" VARCHAR2(20 BYTE),
+  "ExterriorProfile" VARCHAR2(50 BYTE),
+  "ExterriorGaudge" NUMBER(10),
+  "ExterriorTexture" VARCHAR2(100 BYTE),
+  "InteriorProfile" VARCHAR2(50 BYTE),
+  "InteriorGaudge" NUMBER(10),
+  "InteriorTexture" VARCHAR2(100 BYTE),
+  "FastenerType" VARCHAR2(50 BYTE),
+  "FastenerHeadFinish" VARCHAR2(50 BYTE),
+  "FastenerLength" VARCHAR2(50 BYTE),
+  "WeathertightnessType" VARCHAR2(100 BYTE),
+  "WeathertightnessTerm" VARCHAR2(50 BYTE),
+  "ClipType" VARCHAR2(100 BYTE)
+);

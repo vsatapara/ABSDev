@@ -1,0 +1,12 @@
+CREATE OR REPLACE TRIGGER abs_mdi."PermissionBrand_TRG" 
+BEFORE INSERT OR UPDATE ON abs_mdi."PermissionBrand" 
+FOR EACH ROW 
+BEGIN
+
+    <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+/

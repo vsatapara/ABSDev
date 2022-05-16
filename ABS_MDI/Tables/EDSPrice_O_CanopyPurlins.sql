@@ -1,0 +1,20 @@
+CREATE TABLE abs_mdi."EDSPrice_O_CanopyPurlins" (
+  "CanopyPurlinsId" NUMBER(10) NOT NULL,
+  "BuildingNumber" NUMBER(10),
+  "Elevation" VARCHAR2(50 BYTE),
+  "BayNumber" NUMBER(10),
+  "LinearOffset" NUMBER(10),
+  "Depth" NUMBER(10),
+  "Thick" NUMBER(10),
+  "LapLeft" NUMBER(10),
+  "LapRight" NUMBER(10),
+  "CreatedBy" NUMBER(10),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER(10),
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "IsDeleted" VARCHAR2(1 BYTE),
+  "ProjectId" NUMBER(10),
+  CONSTRAINT "EDSPrice_O_CanopyPurlins_PK" PRIMARY KEY ("CanopyPurlinsId"),
+  CONSTRAINT eds_price_o_canopypurlins_fk FOREIGN KEY ("BuildingNumber") REFERENCES abs_mdi."BuildingInformation" ("BuildingInformationId")
+);

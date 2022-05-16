@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER abs_mdi."EDSPrice_IO_ComplexityItems_TRG" 
+BEFORE INSERT ON abs_mdi."EDSPrice_IO_ComplexityItems" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+/

@@ -1,0 +1,72 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."PROJECT_ESTIMATING_CREATE" (
+ QuoteNumber                     IN VARCHAR2,
+ QuoteYear                       IN VARCHAR2,
+ CommitNumber                    IN VARCHAR2,
+ CommitYear                      IN VARCHAR2,
+ IsImpHasSpc                     IN VARCHAR2,
+ ImpSpcPrice                     IN NUMBER,
+ ImpSpcCost                      IN NUMBER,
+ ImpAdjustmentPercent            IN NUMBER,
+ EstimatorName                   IN VARCHAR2,
+ EstThreshold                    IN NUMBER,
+ EstComplexity                   IN NUMBER,
+ EstSurchargePercent             IN NUMBER,
+ CalcCustServHours               IN NUMBER,
+ CalcEngineeringHours            IN NUMBER,
+ CalcDraftingHours               IN NUMBER,
+ IsIncompletePrice               IN VARCHAR2,
+ FreightExpense                  IN NUMBER,
+ ProjectId                       IN NUMBER,
+ IpAddress     					 IN VARCHAR2,
+ OutputId   OUT  NUMBER
+)
+AS 
+BEGIN
+ INSERT INTO  "Project_Estimating"  (
+    "QuoteNumber",
+    "QuoteYear",
+    "CommitNumber",
+    "CommitYear",
+    "EstimatorName",
+    "IsImpHasSpc",
+    "ImpSpcPrice",
+    "ImpSpcCost",
+    "ImpAdjustmentPercent",
+    "EstThreshold",
+    "EstComplexity",
+    "EstSurchargePercent",
+    "CalcCustServHours",
+    "CalcEngineeringHours",
+    "CalcDraftingHours",    
+    "IsIncompletePrice",
+    "FreightExpense",    
+    "ProjectId",    
+    "CreatedDate" ,
+    "IpAddress" ,
+    "IsDeleted"
+    ) 
+    VALUES (  
+    QuoteNumber,     
+    QuoteYear,
+    CommitNumber,
+    CommitYear,
+    EstimatorName,
+    IsImpHasSpc,
+    ImpSpcPrice,
+    ImpSpcCost,
+    ImpAdjustmentPercent,    
+    EstThreshold,
+    EstComplexity,
+    EstSurchargePercent,
+    CalcCustServHours,
+    CalcEngineeringHours,
+    CalcDraftingHours,
+    IsIncompletePrice,
+    FreightExpense,
+    ProjectId,   
+    CURRENT_TIMESTAMP,
+    IpAddress,
+    'N'
+    ) RETURNING  "EstimatingId"  INTO OutputId;
+END Project_Estimating_CREATE;
+/

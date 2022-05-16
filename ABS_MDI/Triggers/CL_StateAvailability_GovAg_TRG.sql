@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."CL_StateAvailability_GovAg_TRG" 
+BEFORE INSERT ON abs_mdi."CL_StateAvailability_GovAg" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."SAId" IS NULL THEN
+      SELECT "CL_StateAvailability_GovAg_SEQ".NEXTVAL INTO :NEW."SAId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi.customerreassignment_seq;

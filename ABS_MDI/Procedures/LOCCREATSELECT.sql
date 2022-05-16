@@ -1,0 +1,18 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."LOCCREATSELECT" 
+(
+  xxCategoryId IN NUMBER,
+    Output_Data OUT SYS_REFCURSOR
+)AS
+BEGIN
+OPEN Output_Data FOR
+    SELECT
+        "LOCTEMPLATEID",
+        "CATEGORYID",
+        "DESCRIPTION"
+    FROM
+        "DDP_LOCTEMPLATES"
+    WHERE 
+        "CATEGORYID" = xxCategoryId 
+    AND "ISDELETE" = 'N';
+END "LOCCREATSELECT";
+/

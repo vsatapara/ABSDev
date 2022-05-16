@@ -1,0 +1,20 @@
+CREATE TABLE abs_mdi."CAD_Express" (
+  "Id" NUMBER(10) NOT NULL,
+  "BuildingNumber" NUMBER(10),
+  "Drawing" NUMBER(10),
+  "PaperSize" NUMBER(10),
+  "Scale" NUMBER(10),
+  "Manufacturer" NUMBER(10),
+  "FramelineXSection" NUMBER(10),
+  "DrawingName" VARCHAR2(255 BYTE),
+  "PF_Elevation" VARCHAR2(50 BYTE),
+  "PF_BayNumber" NUMBER(10),
+  "CreatedBy" NUMBER(10),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER(10),
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "IsDelete" VARCHAR2(1 BYTE),
+  "OptionsCombineBldg" NUMBER(1),
+  PRIMARY KEY ("Id")
+);

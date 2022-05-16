@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."CLM_USGSSeismicValues_INDEX1" ON abs_mdi."CLM_USGSSeismicValues"("DesignCodeID");

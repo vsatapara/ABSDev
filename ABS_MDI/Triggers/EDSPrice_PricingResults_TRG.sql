@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."EDSPrice_PricingResults_TRG" 
+BEFORE INSERT ON abs_mdi."EDSPrice_PricingResults" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."PricingResultsId" IS NULL THEN
+      SELECT "EDSPrice_PricingResults_SEQ".NEXTVAL INTO :NEW."PricingResultsId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

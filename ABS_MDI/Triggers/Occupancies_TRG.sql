@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Occupancies_TRG" 
+BEFORE INSERT ON abs_mdi."Occupancies" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."OccupancyId" IS NULL THEN
+      SELECT "Occupancies_SEQ".NEXTVAL INTO :NEW."OccupancyId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

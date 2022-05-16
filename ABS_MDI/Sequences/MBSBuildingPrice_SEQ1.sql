@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."MBSBuildingPrice_SEQ1";

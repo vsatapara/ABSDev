@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."IDXM_EDSPrice_Program_ShipBy_NoteID" ON abs_mdi."M_EDSPrice_Program_ShipBy"("NoteID");

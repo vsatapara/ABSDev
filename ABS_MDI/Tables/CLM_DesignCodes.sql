@@ -1,0 +1,22 @@
+CREATE TABLE abs_mdi."CLM_DesignCodes" (
+  "DesignCodeId" NUMBER(10) NOT NULL,
+  "Active" CHAR NOT NULL,
+  "Code" NVARCHAR2(50) NOT NULL,
+  "Description" NVARCHAR2(80) NOT NULL,
+  "Edition" NVARCHAR2(25) NOT NULL,
+  "Designation" NVARCHAR2(80) NOT NULL,
+  "SortOrder" NUMBER(*,0) NOT NULL,
+  "IsIBC2012Based" CHAR NOT NULL,
+  "IsCanadaBased" CHAR NOT NULL,
+  "USGSRefDesignCodeId" NUMBER(*,0) NOT NULL,
+  "MBS_Local" NVARCHAR2(50) NOT NULL,
+  "MBS_Code" NVARCHAR2(50) NOT NULL,
+  "MBS_Year" NVARCHAR2(50) NOT NULL,
+  "MBS_Design_type" NVARCHAR2(50) NOT NULL,
+  "MBS_FileName MBS_FileName" NVARCHAR2(50) NOT NULL,
+  "MBS_Cold_Version" NVARCHAR2(50) NOT NULL,
+  "MBS_Hot_Version" NVARCHAR2(50) NOT NULL,
+  "DeflectionGroupId" NUMBER(*,0) NOT NULL,
+  "PgaSeismicEnabled" CHAR NOT NULL,
+  CONSTRAINT "CLM_DesignCodes_PK" PRIMARY KEY ("DesignCodeId")
+);

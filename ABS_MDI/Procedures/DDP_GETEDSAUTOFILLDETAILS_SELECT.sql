@@ -1,0 +1,80 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."DDP_GETEDSAUTOFILLDETAILS_SELECT" 
+/*   Created By    Mayuresh Jagtap
+      Created Date   3-5-2021
+      Description   This stored Procedure used in the DDP and used for get data from EDS table for LOC AutoFill  */
+      (
+      JobFolderNumber IN NVARCHAR2,
+    BldgVersion IN NVARCHAR2,
+    Output_Data_1 OUT SYS_REFCURSOR,
+    Output_Data_2 OUT SYS_REFCURSOR,
+    Output_Data_3 OUT SYS_REFCURSOR
+    )AS 
+BEGIN
+  OPEN Output_Data_1 FOR 
+    SELECT DISTINCT "BL"."BUILDING_NAME",
+        "BL"."BOXLAYGEOMID",
+        "BL"."BLDG_WIDTH",
+        "BL"."BLDG_LENGTH",
+        "BL"."BLDG_EAVE_HT1",
+        "BL"."BLDG_EAVE_HT2"
+    FROM "DDP_EDSDB_BOXLAYGEOM"  BL
+    INNER JOIN "DDP_EDSDB_BUILDING_VERSION" EDV
+    ON "BL"."EDSDBBLDGVERID" =  "EDV"."EDSDBBLDGVERID"
+    WHERE "BL"."ISDELETE" = 'N'
+    AND "EDV"."JOBNUMBER" = JobFolderNumber
+    ORDER BY "BL"."BUILDING_NAME";
+    --AND "EDSDBBLDGVERID" IN (
+    --CASE WHEN  BldgVersion <> null 
+    --THEN 
+    --(SELECT EDSDBBLDGVERID from "DDP_EDSDB_BUILDING_VERSION" WHERE  "JOBNUMBER" = JobNumber AND "BLDGVER" = BldgVersion)
+    --ELSE
+   --SELECT EDSDBBLDGVERID from "DDP_EDSDB_BUILDING_VERSION" WHERE  "JOBNUMBER" = JobNumber
+    --END
+   -- );
+     
+OPEN Output_Data_2 FOR 
+    SELECT
+       GI.GENINFOID, 
+        GI.BP_NAME,
+        GI.BP_ADDRESS1,
+        GI.BP_CITY,
+        GI.BP_STATE,
+        GI.BP_ZIP_CODE,
+        GI.SHIP_TO_NAME,
+        GI.SHIP_TO_CITY,
+        GI.SHIP_TO_STATE, 
+        GI.JOBSITE_STATE,
+        GI.DESIGN_OFFICE_LOCATION 
+    FROM "DDP_EDSDB_GENINFO" GI
+    INNER JOIN "DDP_EDSDB_BUILDING_VERSION" EDV1
+    ON "GI"."EDSDBBLDGVERID" =  "EDV1"."EDSDBBLDGVERID" 
+    WHERE GI.ISDELETE = 'N'
+    AND LOWER("EDV1"."JOBNUMBER") = LOWER(JobFolderNumber);
+    --AND GI.EDSDBBLDGVERID IN (
+    --CASE WHEN  BldgVersion <> '' 
+    --THEN 
+    --(SELECT EDSDBBLDGVERID from "DDP_EDSDB_BUILDING_VERSION" WHERE  "JOBNUMBER" = JobNumber AND "BLDGVER" = BldgVersion)
+    --ELSE
+   --SELECT EDSDBBLDGVERID from "DDP_EDSDB_BUILDING_VERSION" WHERE  "JOBNUMBER" = JobNumber
+    --END
+   -- );
+    
+OPEN Output_Data_3 FOR 
+    SELECT
+        "ES"."SETTINGID",
+        "ES"."MBG_BRAND"
+    FROM "DDP_EDSDB_SETTINGS" ES
+    INNER JOIN "DDP_EDSDB_BUILDING_VERSION" EDV2
+    ON "ES"."EDSDBBLDGVERID" =  "EDV2"."EDSDBBLDGVERID" 
+    WHERE "ES"."ISDELETE" = 'N'
+    AND LOWER("EDV2"."JOBNUMBER") = LOWER(JobFolderNumber);
+    -- AND "EDSDBBLDGVERID" IN (
+    --CASE WHEN  BldgVersion <> null 
+    --THEN 
+    --(SELECT EDSDBBLDGVERID from "DDP_EDSDB_BUILDING_VERSION" WHERE  "JOBNUMBER" = JobNumber AND "BLDGVER" = BldgVersion)
+    --ELSE
+    --SELECT EDSDBBLDGVERID from "DDP_EDSDB_BUILDING_VERSION" WHERE  "JOBNUMBER" = JobNumber
+    -- END
+    --);
+END DDP_GETEDSAUTOFILLDETAILS_SELECT;
+/

@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi.clm_usgsseismicvaluescopy_index1 ON abs_mdi.clm_usgsseismicvaluescopy("DesignCodeID");

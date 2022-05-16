@@ -1,0 +1,97 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."MEZZANINES_GETBYBUILDINGID" 
+(
+    BuildingId IN VARCHAR2,
+    OUTPUT_TABLE OUT  SYS_REFCURSOR
+)
+AS
+BEGIN
+OPEN OUTPUT_TABLE FOR SELECT
+    "MezzaninesId" "Id",
+    "BuildingNumber",
+    "MezzanineNumber",
+    "JoistParallelToPurlins",
+    "StartFrameline",
+    "StopFrameline",
+    "DistFromSW",
+    "Width",
+    "OpenDistFromSw",
+    "OpenDistFromFrameline",
+    "OpenWidthAlongEw",
+    "OpenLengthAlongSw",
+    "Design",
+    "Beams",
+    "Deck",
+    "Joists",
+    "SupportColumns",
+    "EdgeAngle",
+    "FloorThickness",
+    "FloorHeight",
+    "FloorMaterial",
+    "InsideClearBeams",
+    "MaxBeamDepth",
+    "InsideClearJoists",
+    "MaxJoistDepth",
+    "JoistShopcoat",
+    "JoistWelded",
+    "JoistSpacing",
+    "DeckType",
+    "DeckFinish",
+    "DeckFastened",
+    "DeckIcboApproval",
+    "DeckClosure",
+    "LiveLoad",
+    "DeadLoad",
+    "CollateralLoad",
+    "PartitionLoad",
+    "QuoteNumber",
+    "QuoteYear",
+    "EstimatorInitials",
+    "ExpiresOn",
+    "Expired",
+    "NoVendor",
+    "PriceStar",
+    "WeightStar",
+    "PriceBeams",
+    "WeightBeams",
+    "PriceJoists",
+    "WeightJoists",
+    "VendorJoists",
+    "PriceDeck",
+    "WeightDeck",
+    "VendorDeck",
+    "Vibration",
+    "DeckCoverage",
+    "HumanActivity",
+    "MezzUse",
+    "MezzColSpacingSet",
+    "StairwellWeight",
+    "ClearToRafter",
+    "LiveLoadReduction",
+    "AttachmentToSupport",
+    "AttachmentToSidelap",
+    "AttachmentByStarSupport",
+    "AttachmentByStarSidelap",
+    "JoistType",
+    "JoistSpacingStandard",
+    "JoistSpacingSpecified",
+    "IntMezzColumnType",
+    "ColumnBaseType",
+    "ColumnBaseHeight",
+    "JoistSpacingCustom",
+    "DeckDescription",
+    "DeckFinishWidth",
+    "DeckFinishType",
+    "DeckFinishGauge",
+    "DeckFinishFinish",
+    "HideWeightPrice",
+    "ProjectId"
+FROM
+    "EDSPrice_IO_Mezzanines"
+WHERE
+                "BuildingNumber" in( 
+                        SELECT regexp_substr(BuildingId,'[^,]+', 1, level) from dual
+                        connect by regexp_substr(BuildingId, '[^,]+', 1, level) is not null
+                        )
+             AND ("IsDelete" IS NULL OR "IsDelete" != 'Y');
+END;
+/

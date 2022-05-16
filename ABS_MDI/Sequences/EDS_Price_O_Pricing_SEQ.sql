@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."EDS_Price_O_Pricing_SEQ";

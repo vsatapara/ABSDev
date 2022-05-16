@@ -1,0 +1,6 @@
+CREATE TABLE abs_mdi."M_EDSPrice_Program_Multiplier_Info" (
+  "List" BINARY_DOUBLE DEFAULT 0 NOT NULL,
+  sga BINARY_DOUBLE DEFAULT 0,
+  op BINARY_DOUBLE DEFAULT 0,
+  PRIMARY KEY ("List")
+);

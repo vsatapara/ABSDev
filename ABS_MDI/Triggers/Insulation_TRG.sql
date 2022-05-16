@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Insulation_TRG" 
+BEFORE INSERT ON abs_mdi."Insulation" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."InsulationId" IS NULL THEN
+      SELECT "Insulation_SEQ".NEXTVAL INTO :NEW."InsulationId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

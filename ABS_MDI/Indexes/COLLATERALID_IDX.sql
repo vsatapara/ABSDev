@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi.collateralid_idx ON abs_mdi."Collaterals"("CollateralId");

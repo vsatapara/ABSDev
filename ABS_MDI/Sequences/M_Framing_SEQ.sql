@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."M_Framing_SEQ";

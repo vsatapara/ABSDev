@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Accessories_Facade_TRG" 
+BEFORE INSERT ON abs_mdi."Accessories_Facade" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."FacadeId" IS NULL THEN
+      SELECT "Accessories_Facade_SEQ".NEXTVAL INTO :NEW."FacadeId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

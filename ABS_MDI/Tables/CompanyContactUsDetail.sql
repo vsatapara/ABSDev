@@ -1,0 +1,21 @@
+CREATE TABLE abs_mdi."CompanyContactUsDetail" (
+  "ContactUsDetailId" NUMBER(5) NOT NULL,
+  "CompanyId" NUMBER(5) NOT NULL,
+  "ContactUsPageURL" NVARCHAR2(500),
+  "BuidldingSoftwareName" NVARCHAR2(100),
+  "ComponentSoftwareName" NVARCHAR2(100),
+  "BuildingGoogleAnalyticsId" NUMBER(5),
+  "ComponenetAnalyticId" NUMBER(5),
+  "BuidlingPhone" VARCHAR2(20 BYTE),
+  "ComponentPhone" VARCHAR2(20 BYTE),
+  "DistrictManager" NVARCHAR2(50),
+  "RegionalManager" NVARCHAR2(50),
+  "ServiceRepresentative" NVARCHAR2(50),
+  "CreatedBy" NUMBER(5),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER(5),
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  CONSTRAINT "CompanyContactUsDetail_PK" PRIMARY KEY ("ContactUsDetailId"),
+  CONSTRAINT contactusdetail_fk FOREIGN KEY ("CompanyId") REFERENCES abs_mdi."Company" ("CompanyId")
+);

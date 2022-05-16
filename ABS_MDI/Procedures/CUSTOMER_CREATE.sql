@@ -1,0 +1,92 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."CUSTOMER_CREATE" 
+(      
+	CustomerNo IN VARCHAR2,
+	CustomerName IN VARCHAR2,
+    AdministratorEmail IN VARCHAR2,
+    AdministratorFName IN VARCHAR2,
+    AdministratorLName IN VARCHAR2,
+	BuildingsPriceSegment IN NUMBER,
+	ComponentPricingSegment IN NUMBER,
+	PermissionGroup IN NUMBER,
+	PriceMultiplier IN DECIMAL,
+	FinalPriceMultiplier IN DECIMAL,
+	FinalFreightMultiplier IN DECIMAL,
+	ComponentsPriceMultiplier IN DECIMAL,
+	ComponentsFinalPriceMultiplier IN DECIMAL,
+	ComponentsFinalFreightMultiplier IN DECIMAL,
+	ShippingZoneGroupId IN NUMBER,
+	ComponentsShippingZoneGroupId IN NUMBER,
+	IsDefaultCustomer IN CHAR,
+	IsActive IN CHAR,
+	IsQuickQuoteAvailable IN CHAR,
+	IsPrivateLabelBuilder IN CHAR,
+	EnforceSignatureRule IN CHAR,
+	IsDelete IN CHAR,
+	UserId IN NUMBER,
+    IpAddress IN VARCHAR2,
+    CompanyId IN  NUMBER,
+    OutputId OUT NUMBER
+)
+AS 
+BEGIN
+    INSERT INTO "Customer"
+    (
+    "CustomerNo",
+	"CustomerName",
+    "AdministratorEmail",
+    "AdministratorFName",
+    "AdministratorLName",
+	"BuildingsPriceSegment",
+	"ComponentPricingSegment",
+	"PermissionGroup",
+	"PriceMultiplier",
+	"FinalPriceMultiplier",
+	"FinalFreightMultiplier",
+	"ComponentsPriceMultiplier",
+	"ComponentsFinalPriceMultiplier",
+	"ComponentsFinalFreightMultiplier",
+	"ShippingZoneGroupId",
+	"ComponentsShippingZoneGroupId",
+	"IsDefault",
+	"IsActive",
+	"IsQuickQuoteAvailable",
+	"IsPrivateLabelBuilder",
+	"EnforceSignatureRule",
+	"IsDelete",
+	"CreatedBy",
+	"CreatedDate",
+    "IpAddress",
+    "CompanyId"
+    ) 
+    VALUES 
+    (
+    CustomerNo,
+	CustomerName,
+    AdministratorEmail,
+    AdministratorFName,
+    AdministratorLName,
+	BuildingsPriceSegment,
+	ComponentPricingSegment,
+	PermissionGroup,
+	PriceMultiplier,
+	FinalPriceMultiplier,
+	FinalFreightMultiplier,
+	ComponentsPriceMultiplier,
+	ComponentsFinalPriceMultiplier,
+	ComponentsFinalFreightMultiplier,
+	ShippingZoneGroupId,
+	ComponentsShippingZoneGroupId,
+	IsDefaultCustomer,
+	IsActive,
+	IsQuickQuoteAvailable,
+	IsPrivateLabelBuilder,
+	EnforceSignatureRule,
+	IsDelete,
+	UserId,
+	CURRENT_TIMESTAMP,
+    IpAddress,
+    CompanyId 
+    )
+    RETURNING "CustomerID" into OutputId;
+END Customer_Create;
+/

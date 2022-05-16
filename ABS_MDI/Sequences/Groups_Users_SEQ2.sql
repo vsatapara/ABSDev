@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."Groups_Users_SEQ2";

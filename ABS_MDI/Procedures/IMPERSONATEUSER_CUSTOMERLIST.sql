@@ -1,0 +1,12 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."IMPERSONATEUSER_CUSTOMERLIST" 
+(
+    Output_Data OUT SYS_REFCURSOR
+)
+AS 
+BEGIN
+    OPEN OUTPUT_DATA FOR 
+      SELECT 
+        "CustomerName"
+      FROM CUSTOMER;
+END ImpersonateUser_CustomerList;
+/

@@ -1,0 +1,40 @@
+CREATE OR REPLACE TRIGGER abs_mdi."CONTRACTENGINEERSADDRESSES_TRG" 
+BEFORE INSERT ON abs_mdi."DDP_CONTRACTENGINEERSADDRESSES" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW.CONTRACTENGINEERID IS NULL THEN
+      SELECT CONTRACTENGINEERSADDRESSES_SEQ.NEXTVAL INTO :NEW.CONTRACTENGINEERID FROM SYS.DUAL;
+    END IF;
+     IF (:old."MONIKER" != :new."MONIKER") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_CONTRACTENGINEERSADDRESSES','MONIKER', :old."MONIKER", :new."MONIKER",null,null,null); 
+        END IF;
+         IF (:old."ADDRESS" != :new."ADDRESS") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_CONTRACTENGINEERSADDRESSES','ADDRESS', :old."ADDRESS", :new."ADDRESS",null,null,null); 
+        END IF;
+
+         IF (:old."CITY" != :new."CITY") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_CONTRACTENGINEERSADDRESSES','CITY', :old."CITY", :new."CITY",null,null,null); 
+        END IF;
+
+         IF (:old."STATE" != :new."STATE") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_CONTRACTENGINEERSADDRESSES','STATE', :old."STATE", :new."STATE",null,null,null); 
+        END IF;
+         IF (:old."ZIPCODE" != :new."ZIPCODE") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_CONTRACTENGINEERSADDRESSES','ZIPCODE', :old."ZIPCODE", :new."ZIPCODE",null,null,null); 
+        END IF;
+         IF (:old."PHONE" != :new."PHONE") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_CONTRACTENGINEERSADDRESSES','PHONE', :old."PHONE", :new."PHONE",null,null,null); 
+        END IF;
+
+  END COLUMN_SEQUENCES;
+END;
+
+/

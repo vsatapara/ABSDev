@@ -1,0 +1,12 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Accesories_DBCIDoorMaster_TRG" 
+BEFORE INSERT ON abs_mdi."Accesories_DBCIDoorMaster" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."DbciDoorId" IS NULL THEN
+      SELECT "Accesories_DBCIDoorMaster_SEQ".NEXTVAL INTO :NEW."DbciDoorId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+/

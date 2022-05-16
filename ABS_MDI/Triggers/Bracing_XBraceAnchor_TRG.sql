@@ -1,0 +1,12 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Bracing_XBraceAnchor_TRG" 
+BEFORE INSERT ON abs_mdi."Bracing_XBraceAnchor" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+
+/

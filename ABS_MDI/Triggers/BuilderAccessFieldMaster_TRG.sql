@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."BuilderAccessFieldMaster_TRG" 
+BEFORE INSERT ON abs_mdi."BuilderAccessFieldMaster" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."FieldId" IS NULL THEN
+      SELECT "BuilderAccessFieldMaster_SEQ".NEXTVAL INTO :NEW."FieldId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

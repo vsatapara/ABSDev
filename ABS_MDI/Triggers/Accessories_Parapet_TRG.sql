@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Accessories_Parapet_TRG" 
+BEFORE INSERT ON abs_mdi."Accessories_Parapet" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."ParapetId" IS NULL THEN
+      SELECT "Accessories_Parapet_SEQ".NEXTVAL INTO :NEW."ParapetId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

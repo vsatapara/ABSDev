@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER abs_mdi."EDS_Price_O_ErectionData_TRG" 
+BEFORE INSERT ON abs_mdi."EDSPrice_O_ErectionData" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+/

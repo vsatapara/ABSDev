@@ -1,0 +1,22 @@
+CREATE TABLE abs_mdi."CompanyLabelMessagingDetail" (
+  "LabelMessagingDetailId" NUMBER(5) NOT NULL,
+  "CompanyId" NUMBER(5) NOT NULL,
+  "IsDefualtSetting" CHAR,
+  "LoginWelcomeMessage" NVARCHAR2(50),
+  "ForgotPasswordMeassage" NVARCHAR2(50),
+  "OrderNoteMessage" NVARCHAR2(50),
+  "StartBuildingAction" VARCHAR2(50 BYTE),
+  "StartBuildingURL" NVARCHAR2(500),
+  "OrderComponent" NVARCHAR2(50),
+  "OrderComponntURL" NVARCHAR2(500),
+  "ReturnTowebsideName" NVARCHAR2(50),
+  "ReturnToWebSideUrl" NVARCHAR2(500),
+  "CompanyAddess" NVARCHAR2(200),
+  "CreatedBy" NUMBER(5),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER(5),
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  CONSTRAINT "CompanyLabelMessagingDetail_PK" PRIMARY KEY ("LabelMessagingDetailId"),
+  CONSTRAINT "LabelMessagingDetail_FK" FOREIGN KEY ("CompanyId") REFERENCES abs_mdi."Company" ("CompanyId")
+);

@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."CLM_GoverningCodes_DesignCodeId" ON abs_mdi."CLM_GoverningCodes"("DesignCodeId");

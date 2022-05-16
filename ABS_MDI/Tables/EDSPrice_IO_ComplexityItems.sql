@@ -1,0 +1,21 @@
+CREATE TABLE abs_mdi."EDSPrice_IO_ComplexityItems" (
+  "ComplexityItemsId" NUMBER(10),
+  "Sort" NUMBER(10),
+  "Description" VARCHAR2(50 BYTE),
+  "Quantity" NUMBER(10),
+  "TotalPoints" NUMBER(10,2),
+  "EngTotalPoints" NUMBER(10,2),
+  "ADD" NUMBER(10),
+  "DraftingLevel" NUMBER(10),
+  mbma NUMBER(10,2),
+  "MBMACategory" VARCHAR2(50 BYTE),
+  "EstimatorAdd" NUMBER(10),
+  "CreatedBy" NUMBER(10),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER(10),
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "IsDeleted" VARCHAR2(1 BYTE),
+  "ProjectId" NUMBER(10) NOT NULL,
+  CONSTRAINT "EDSPrice_IO_ComplexityItems_PK" PRIMARY KEY ("ProjectId")
+);

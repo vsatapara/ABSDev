@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER abs_mdi."CustomerArchiveFolders_TRG" 
+BEFORE INSERT ON abs_mdi."CustomerArchiveFolders" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+/

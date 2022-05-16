@@ -1,0 +1,29 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."DDP_EDSDB_BUILDING_VERSION_INSERT" 
+/*   Created By    Mayuresh Jagtap
+      Created Date   24-08-2021
+      Description   This stored Procedure used in the DDP and used for insert records in EDSDB_BUILDING_VERSION table and return Id */
+(
+        JOBNUMBER IN VARCHAR2,
+        BLDGVER	IN VARCHAR2,
+        IPADDRESS IN VARCHAR2,
+        DDPSSERVERID IN NUMBER,
+        OutputId OUT NUMBER
+) AS 
+BEGIN
+INSERT INTO DDP_EDSDB_BUILDING_VERSION (
+    JOBNUMBER,
+    BLDGVER,   
+    CREATEDDATE,    
+    IPADDRESS,
+    DDPSSERVERID
+) 
+VALUES 
+(
+    JOBNUMBER,
+	BLDGVER,
+	CURRENT_TIMESTAMP,	
+	IPADDRESS,
+	DDPSSERVERID
+)	RETURNING "EDSDBBLDGVERID" into OutputId;
+END DDP_EDSDB_BUILDING_VERSION_INSERT;
+/

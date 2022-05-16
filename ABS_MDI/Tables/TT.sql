@@ -1,0 +1,4 @@
+CREATE TABLE abs_mdi.tt (
+  a1 VARCHAR2(20 BYTE),
+  a2 VARCHAR2(20 BYTE)
+);

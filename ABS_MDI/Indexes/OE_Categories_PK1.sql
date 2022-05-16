@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX abs_mdi."OE_Categories_PK1" ON abs_mdi."OE_Categories"("OE_CategoriesId");

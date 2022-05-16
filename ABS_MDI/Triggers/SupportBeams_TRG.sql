@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."SupportBeams_TRG" 
+BEFORE INSERT ON abs_mdi."SupportBeams" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."SupportBeamsId" IS NULL THEN
+      SELECT "SupportBeams_SEQ".NEXTVAL INTO :NEW."SupportBeamsId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."TableOfTables_Category" ON abs_mdi."TableOfTables"("Category");

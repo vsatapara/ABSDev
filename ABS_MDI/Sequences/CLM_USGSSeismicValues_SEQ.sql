@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."CLM_USGSSeismicValues_SEQ";

@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX abs_mdi."TermsAndCondition_PK1" ON abs_mdi."TermsAndCondition"("TermsAndConditionsId");

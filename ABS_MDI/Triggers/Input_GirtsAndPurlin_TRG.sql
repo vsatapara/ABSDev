@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Input_GirtsAndPurlin_TRG" 
+BEFORE INSERT ON abs_mdi."Input_GirtsBaySpacing" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+
+
+/

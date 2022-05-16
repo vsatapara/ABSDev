@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Escarpment_TRG" 
+BEFORE INSERT ON abs_mdi."Escarpment" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."EscarpmentId" IS NULL THEN
+      SELECT "Escarpment_SEQ".NEXTVAL INTO :NEW."EscarpmentId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

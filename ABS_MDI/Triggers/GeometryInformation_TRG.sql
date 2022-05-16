@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER abs_mdi."GeometryInformation_TRG" 
+BEFORE INSERT ON abs_mdi."GeometryInformation" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+/

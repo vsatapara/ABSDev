@@ -1,0 +1,15 @@
+CREATE OR REPLACE TRIGGER abs_mdi."BrandAssets_TRG" 
+BEFORE INSERT ON abs_mdi."BrandAssets" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."BrandAssetsId" IS NULL THEN
+      SELECT "BrandAssets_SEQ".NEXTVAL INTO :NEW."BrandAssetsId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+
+
+/

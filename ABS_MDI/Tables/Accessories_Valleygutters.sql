@@ -1,0 +1,23 @@
+CREATE TABLE abs_mdi."Accessories_Valleygutters" (
+  "ValleyguttersId" NUMBER(10) NOT NULL,
+  "BuildingInformationId" NUMBER(10),
+  "ProjectId" NUMBER(10),
+  "Quantity" NUMBER,
+  "Length" NUMBER(*,0),
+  "Weight" NUMBER(*,0),
+  "Drainage" NUMBER(*,0),
+  "Price" NUMBER(*,0),
+  "IsPrice" CHAR,
+  "DownspoutLength" NUMBER(*,0),
+  "ConductorHeadLocation" VARCHAR2(100 BYTE),
+  "IpAddress" VARCHAR2(20 BYTE),
+  "IsDelete" CHAR,
+  "CreatedBy" NUMBER,
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER,
+  "ModifiedDate" TIMESTAMP,
+  "NewBuilding" NUMBER(10),
+  "Color" VARCHAR2(500 BYTE),
+  "ErrorCode" NUMBER(10),
+  CONSTRAINT accessories_valleygutters_pk PRIMARY KEY ("ValleyguttersId")
+);

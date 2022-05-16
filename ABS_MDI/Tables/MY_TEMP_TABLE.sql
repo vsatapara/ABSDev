@@ -1,0 +1,5 @@
+CREATE GLOBAL TEMPORARY TABLE abs_mdi.my_temp_table (
+  "ID" NUMBER,
+  description VARCHAR2(20 BYTE)
+)
+ON COMMIT DELETE ROWS;

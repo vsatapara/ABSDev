@@ -1,0 +1,11 @@
+CREATE OR REPLACE PROCEDURE abs_mdi."UPCOMINGEVENTSADMINISTRATION_DELETE" 
+(
+    UpcomingEventId IN NUMBER
+)
+AS
+BEGIN
+    UPDATE "UpcomingEventsAdministration"
+    SET "IsActive" = 'N'
+    WHERE "UpcomingEventId" = UpcomingEventId;
+END UPCOMINGEVENTSADMINISTRATION_DELETE;
+/

@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Input_NetAddLineDetails_TRG" 
+BEFORE INSERT ON abs_mdi."Input_NetAddLineDetails" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."NetAddLineDetailsId" IS NULL THEN
+      SELECT "Input_NetAddLineDetails_SEQ".NEXTVAL INTO :NEW."NetAddLineDetailsId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

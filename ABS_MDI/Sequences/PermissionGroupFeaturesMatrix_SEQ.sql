@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."PermissionGroupFeaturesMatrix_SEQ";

@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."Accesories_WallLTP_Size_SEQ";

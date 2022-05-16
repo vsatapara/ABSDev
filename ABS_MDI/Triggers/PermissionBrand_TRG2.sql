@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."PermissionBrand_TRG2" 
+BEFORE INSERT ON abs_mdi."PermissionBrand" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."PermissionBrandId" IS NULL THEN
+      SELECT "PermissionBrand_SEQ2".NEXTVAL INTO :NEW."PermissionBrandId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

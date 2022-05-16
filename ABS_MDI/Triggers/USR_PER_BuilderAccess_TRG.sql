@@ -1,0 +1,14 @@
+CREATE OR REPLACE TRIGGER abs_mdi."USR_PER_BuilderAccess_TRG" 
+BEFORE INSERT ON abs_mdi."USR_PER_BuilderAccess" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."UsrPerBuilderAccessId" IS NULL THEN
+      SELECT "USR_PER_BuilderAccess_SEQ".NEXTVAL INTO :NEW."UsrPerBuilderAccessId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+
+/

@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."Purchaser_SEQ1" NOCACHE;

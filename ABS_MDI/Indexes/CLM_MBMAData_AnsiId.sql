@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."CLM_MBMAData_AnsiId" ON abs_mdi."CLM_MBMAData"("AnsiId");

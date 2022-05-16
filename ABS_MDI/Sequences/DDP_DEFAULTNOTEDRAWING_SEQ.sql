@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi.ddp_defaultnotedrawing_seq;

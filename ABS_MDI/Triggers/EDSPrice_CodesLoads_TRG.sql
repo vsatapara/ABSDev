@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."EDSPrice_CodesLoads_TRG" 
+BEFORE INSERT ON abs_mdi."EDSPrice_CodesLoads" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."CalcDraftingHours" IS NULL THEN
+      SELECT "EDSPrice_CodesLoads_SEQ".NEXTVAL INTO :NEW."CalcDraftingHours" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

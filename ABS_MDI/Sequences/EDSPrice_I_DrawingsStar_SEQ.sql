@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."EDSPrice_I_DrawingsStar_SEQ";

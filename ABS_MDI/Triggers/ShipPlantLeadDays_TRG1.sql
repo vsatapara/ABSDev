@@ -1,0 +1,15 @@
+CREATE OR REPLACE TRIGGER abs_mdi."ShipPlantLeadDays_TRG1" 
+BEFORE INSERT ON abs_mdi."ShipPlantLeadDays" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."PlantLeadDayId" IS NULL THEN
+      SELECT "ShipPlantLeadDays_SEQ2".NEXTVAL INTO :NEW."PlantLeadDayId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+
+
+/

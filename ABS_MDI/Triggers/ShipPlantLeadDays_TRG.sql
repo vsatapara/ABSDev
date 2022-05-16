@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."ShipPlantLeadDays_TRG" 
+BEFORE INSERT ON abs_mdi."ShipPlantLeadDays" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+
+
+
+/

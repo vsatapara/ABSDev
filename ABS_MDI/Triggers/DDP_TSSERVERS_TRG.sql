@@ -1,0 +1,29 @@
+CREATE OR REPLACE TRIGGER abs_mdi."DDP_TSSERVERS_TRG" 
+BEFORE INSERT OR UPDATE ON abs_mdi.DDP_TSSERVERS 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW.SERVERID IS NULL THEN
+      SELECT DDP_TSSERVERS_SEQ.NEXTVAL INTO :NEW.SERVERID FROM SYS.DUAL;
+    END IF;
+     IF (:old."SERVERNAME" != :new."SERVERNAME") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_TSSERVERS','SERVERNAME', :old."SERVERNAME", :new."SERVERNAME",:new."IPADDRESS",null,null); 
+        END IF;
+        IF (:old."PRETTYNAME" != :new."PRETTYNAME") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_TSSERVERS','PRETTYNAME', :old."PRETTYNAME", :new."PRETTYNAME",:new."IPADDRESS",null,null); 
+        END IF;
+         IF (:old."PATH" != :new."PATH") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_TSSERVERS','PATH', :old."PATH", :new."PATH",:new."IPADDRESS",null,null); 
+        END IF;
+         IF (:old."ISDELETE" != :new."ISDELETE") 
+        THEN
+            "DDP_HISTORYOP"(:new."MODIFIEDBY",'DDP_TSSERVERS','ISDELETE', :old."ISDELETE", :new."ISDELETE",:new."IPADDRESS",null,null); 
+        END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

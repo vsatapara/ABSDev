@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi.edsprice_i_purchaser_seq;

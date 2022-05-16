@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."IDXCompany_Temp_CompanyId" ON abs_mdi."Company_Temp"("CompanyId");

@@ -1,0 +1,15 @@
+CREATE OR REPLACE TRIGGER abs_mdi."ProjectUser_TRG" 
+BEFORE INSERT ON abs_mdi."ProjectUser" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."ProjectUserId" IS NULL THEN
+      SELECT "ProjectUser_SEQ".NEXTVAL INTO :NEW."ProjectUserId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+
+
+/

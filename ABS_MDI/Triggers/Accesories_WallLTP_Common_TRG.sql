@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Accesories_WallLTP_Common_TRG" 
+BEFORE INSERT ON abs_mdi."Accesories_WallLTP_Common" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."Id" IS NULL THEN
+      SELECT "Accesories_WallLTP_Common_SEQ".NEXTVAL INTO :NEW."Id" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+/

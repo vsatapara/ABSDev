@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."EDSPrice_CAD_Advanced_SEQ";

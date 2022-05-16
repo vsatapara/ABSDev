@@ -1,0 +1,1 @@
+CREATE SEQUENCE abs_mdi."EDSPrice_I_PartitionsSpecifiedGirts_SEQ1";

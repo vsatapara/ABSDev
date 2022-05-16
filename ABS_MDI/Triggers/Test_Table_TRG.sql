@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Test_Table_TRG" 
+BEFORE INSERT ON abs_mdi."Test_Table" 
+FOR EACH ROW 
+BEGIN
+  IF INSERTING THEN
+         <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+    END IF;   
+END;
+
+/

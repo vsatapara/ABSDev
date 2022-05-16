@@ -1,0 +1,14 @@
+CREATE OR REPLACE TRIGGER abs_mdi."Collaterals_TRG" 
+BEFORE INSERT ON abs_mdi."Collaterals" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."CollateralId" IS NULL THEN
+      SELECT "Collaterals_SEQ".NEXTVAL INTO :NEW."CollateralId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+
+/

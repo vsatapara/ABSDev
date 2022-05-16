@@ -1,0 +1,6 @@
+CREATE GLOBAL TEMPORARY TABLE abs_mdi.psv_temp_table (
+  ss FLOAT,
+  s1 FLOAT,
+  distance NUMBER
+)
+ON COMMIT DELETE ROWS;

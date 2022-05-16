@@ -1,0 +1,22 @@
+CREATE TABLE abs_mdi."Input_Endwall" (
+  "EndWallID" NUMBER(10) NOT NULL,
+  "BuildingNo" NUMBER(10),
+  "FrameType" VARCHAR2(50 BYTE),
+  "CreatedBy" NUMBER(10),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" NUMBER,
+  "ModifiedDate" TIMESTAMP,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "ProjectId" NUMBER,
+  "EndWallNo" NUMBER,
+  "ElevationType" VARCHAR2(20 BYTE),
+  "IsDeleted" CHAR,
+  "ColumnSpacingType" VARCHAR2(50 BYTE),
+  "InsulationTrim" CHAR,
+  "NonStandardSetback" CHAR,
+  "DesignedSetback" NUMBER(20,15),
+  "SpecifiedSetback" VARCHAR2(20 BYTE),
+  "BayCount" NUMBER(10),
+  "GableFlash" NUMBER(10) DEFAULT 0,
+  CONSTRAINT "Input_Endwall_PK" PRIMARY KEY ("EndWallID")
+);

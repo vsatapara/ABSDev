@@ -1,0 +1,1 @@
+CREATE INDEX abs_mdi."IDXM_EDSPrice_Counties_States_CrmGuid" ON abs_mdi."M_EDSPrice_Counties_States"("CrmGuid");

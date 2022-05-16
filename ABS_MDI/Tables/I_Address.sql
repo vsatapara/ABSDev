@@ -1,0 +1,21 @@
+CREATE TABLE abs_mdi."I_Address" (
+  "AddressId" NUMBER(10) NOT NULL,
+  "ProjectId" NUMBER(10) NOT NULL,
+  "Address1" VARCHAR2(100 BYTE),
+  "Address2" VARCHAR2(100 BYTE),
+  "Country" VARCHAR2(50 BYTE),
+  "State" VARCHAR2(50 BYTE),
+  "County" VARCHAR2(50 BYTE),
+  "City" VARCHAR2(50 BYTE),
+  "ZipCode" VARCHAR2(50 BYTE),
+  "Longitude" VARCHAR2(50 BYTE),
+  "Latitude" VARCHAR2(50 BYTE),
+  "CreatedBy" VARCHAR2(50 BYTE),
+  "CreatedDate" TIMESTAMP,
+  "ModifiedBy" VARCHAR2(50 BYTE),
+  "ModifiedDate" TIMESTAMP,
+  "IsDelete" CHAR,
+  "IpAddress" VARCHAR2(20 BYTE),
+  "AddressType" CHAR(2 BYTE),
+  CONSTRAINT "I_Address_PK" PRIMARY KEY ("AddressId")
+);

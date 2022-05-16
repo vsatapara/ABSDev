@@ -1,0 +1,14 @@
+CREATE OR REPLACE TRIGGER abs_mdi."USR_Brand_Customer_TRG" 
+BEFORE INSERT ON abs_mdi."USR_Brand_Customer" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."UsrBrandCustomerId" IS NULL THEN
+      SELECT "USR_Brand_Customer_SEQ".NEXTVAL INTO :NEW."UsrBrandCustomerId" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+
+
+/

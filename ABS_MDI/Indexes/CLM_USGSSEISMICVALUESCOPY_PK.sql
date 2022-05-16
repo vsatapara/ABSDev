@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX abs_mdi.clm_usgsseismicvaluescopy_pk ON abs_mdi.clm_usgsseismicvaluescopy("Id");
