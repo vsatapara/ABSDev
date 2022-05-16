@@ -4,5 +4,6 @@ CREATE TABLE abs_mdi.attachment_bkp (
   "AttachmentName" NVARCHAR2(200),
   "AttachmentPath" NCLOB,
   "IsDelete" CHAR,
-  "AttachedDate" TIMESTAMP
+  "AttachedDate" TIMESTAMP,
+  "NewField" CHAR
 );
